@@ -13,11 +13,15 @@ export class EmployeeComponent {
     _id: '',
     firstName: '',
     lastName: '',
+    username: '',
+    password: ''
   };
   newEmployee: any = {
     _id: '',
     firstName: '',
     lastName: '',
+    username: '',
+    password: ''
   };
 
 
@@ -40,6 +44,8 @@ export class EmployeeComponent {
       _id: '',
       firstName: '',
       lastName: '',
+      username: '',
+      password: ''
     };
   }
   

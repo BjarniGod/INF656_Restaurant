@@ -25,7 +25,9 @@ export class EmployeeService {
     const body = {
       id: employee._id,
       firstName: employee.firstName,
-      lastName: employee.lastName
+      lastName: employee.lastName,
+      username: employee.username,
+      password: employee.password
     }
     return this.http.post<Employee>(`${this.BASE_URL}`, body);
   }
@@ -35,7 +37,9 @@ export class EmployeeService {
     const body = {
       id: employee._id,
       firstName: employee.firstName,
-      lastName: employee.lastName
+      lastName: employee.lastName,
+      username: employee.username,
+      password: employee.password
     }
     return this.http.put<Employee>(`${this.BASE_URL}`, body)
   }
