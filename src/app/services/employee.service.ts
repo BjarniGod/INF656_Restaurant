@@ -23,13 +23,12 @@ export class EmployeeService {
 
   updateEmployee(employee: Employee): Observable<Employee> {
     console.log('Sending update request for employee: ', employee);
-    return this.http.put<Employee>(`${this.BASE_URL}`, {
-      body: {
-        id: employee._id,
-        firstName: employee.firstName,
-        lastName: employee.lastName
-      }
-    })
+    const body = {
+      id: employee._id,
+      firstName: employee.firstName,
+      lastName: employee.lastName
+    }
+    return this.http.put<Employee>(`${this.BASE_URL}`, body)
   }
 
   deleteEmployee(id: string): Observable<any> {

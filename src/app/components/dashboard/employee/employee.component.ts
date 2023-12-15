@@ -30,6 +30,7 @@ export class EmployeeComponent {
   }
 
   getEmployee(id: string) {
+    // console.log(id);
     if(id) {
       this.employeeService.getEmployee(id).subscribe((employeeData) => {
         this.employee = employeeData;
@@ -40,10 +41,10 @@ export class EmployeeComponent {
   }
 
   updatedEmployee() {
-    if(this.employee._id && this.employee) {
+    if(this.employee._id) {
       this.employeeService.updateEmployee(this.employee).subscribe({
         next: (updateEmployee) => {
-          console.log('Employee successfully updated: ', this.updatedEmployee);
+          console.log('Employee successfully updated: ', updateEmployee);
           this.loadEmployees()
         },
         error: (error) => {
