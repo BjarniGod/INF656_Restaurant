@@ -1,0 +1,54 @@
+<app-header></app-header>
+
+<div class="cart-container">
+    <h2>Your Cart</h2>
+    <ul class="cart-items">
+      <li *ngFor="let item of cartItems; let i = index">
+        {{ item.itemName }} - ${{ item.price }}
+        <button (click)="removeFromCart(i)">Remove</button>
+      </li>
+    </ul>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#orderModal">Place Order</button>
+
+  </div>
+
+  <!-- ... existing HTML ... -->
+
+<!-- Order Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderModalLabel">Complete Your Order</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Order Form -->
+          <form #orderForm="ngForm">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" required ngModel name="firstName">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" required ngModel name="lastName">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" required ngModel name="email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="placeOrder(orderForm.value)">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<app-footer></app-footer>
+  

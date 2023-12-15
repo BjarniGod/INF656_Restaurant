@@ -6,20 +6,36 @@
       <ul class="fiter-list">
   
         <li>
-          <button class="filter-btn  active" (click)="selCat('All')">All</button>
+          <button class="filter-btn" [class.active]="selectedCategory === 'All'" (click)="selCat('All')">All</button>
         </li>
-  
+        
         <li>
-          <button class="filter-btn" (click)="selCat('Pizza')">Pizza</button>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Entree'" (click)="selCat('Entree')">Entree</button>
         </li>
-  
+        
         <li>
-          <button class="filter-btn" (click)="selCat('Burger')">Burger</button>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Burger'" (click)="selCat('Burger')">Burger</button>
         </li>
-  
+        
         <li>
-          <button class="filter-btn" (click)="selCat('Wrap')">Wraps</button>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Salad'" (click)="selCat('Salad')">Salad</button>
         </li>
+        
+        <li>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Appetizer'" (click)="selCat('Appetizer')">Appetizer</button>
+        </li>
+        
+        <li>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Kids'" (click)="selCat('Kids')">Kids</button>
+        </li>
+        
+        <li>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Breakfast'" (click)="selCat('Breakfast')">Breakfast</button>
+        </li>
+        
+        <li>
+          <button class="filter-btn" [class.active]="selectedCategory === 'Beverage'" (click)="selCat('Beverage')">Beverage</button>
+        </li>        
 
   
       </ul>
@@ -34,14 +50,18 @@
               <img [src]="item.itemImage" width="300" height="300" loading="lazy"
                 alt="{{ item.itemName }}" class="w-100">
   
-              <button class="btn food-menu-btn">Add to Bag</button>
-            </div>
+                <button class="btn food-menu-btn" (click)="addToBag(item)">Add to Bag</button>
+              </div>
   
             <div class="wrapper">
               <p class="category">{{ item.category }}</p>
             </div>
   
             <h3 class="h3 card-title">{{ item.itemName }}</h3>
+
+            <div class="wrapper">
+              <p class="category">{{ item.description }}</p>
+            </div>
   
             <div class="price-wrapper">
   
@@ -56,7 +76,6 @@
       </ng-container>
   
     </ul>
-  
   
     </div>
   </section>

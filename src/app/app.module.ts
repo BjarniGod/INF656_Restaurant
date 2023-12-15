@@ -21,6 +21,9 @@ import { EmployeeComponent } from './components/dashboard/employee/employee.comp
 
 import { HttpClientModule } from '@angular/common/http';
 import { MenuItemComponent } from './components/dashboard/menu-item/menu-item.component';
+import { OrderListComponent } from './components/dashboard/order-list/order-list.component';
+import { CartComponent } from './components/cart/cart.component';
+import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { MenuItemComponent } from './components/dashboard/menu-item/menu-item.co
     DashboardNavComponent,
     EmployeeComponent,
     MenuItemComponent,
+    OrderListComponent,
+    CartComponent,
+    OrderConfirmationComponent,
   ],
   imports: [
     BrowserModule,
