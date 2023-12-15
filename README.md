@@ -7,13 +7,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Step 1: Clone the following github repository into Visual Studio Code
 
 ```
-    git clone https://github.com/ivanvelocastaneda/Team-B-Project-Server
+    git clone https://github.com/BjarniGod/INF656_WebService
 ```
 
 ### Step 2: Change directory
 
 ```
-    cd Team-B-Project-Server
+    cd INF656_WebService
 ```
 
 ### Step 3: Install required packages
@@ -33,13 +33,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Step 1: Clone the following github repository into Visual Studio Code
 
 ```
-    git clone https://github.com/ivanvelocastaneda/CSCI441_A-Team-B-Project
+    git clone https://github.com/BjarniGod/INF656_Restaurant
 ```
 
 ### Step 2: Change directory
 
 ```
-    cd Team-B-Project-Server
+    cd INF656_Restaurant
 ```
 
 ### Step 3: Development server
@@ -48,7 +48,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Using the Application
 
-### Employee  LogIn
+### Employee  Login
 
 You can access the employee interface at the bottom of the website, you will be prompted with a log-in screen.
 Already available test employee credentials
