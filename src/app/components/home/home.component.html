@@ -1,0 +1,81 @@
+<app-header></app-header>
+
+<section class="hero" id="home">
+  <div class="container">
+
+    <div class="hero-content">
+
+      <h2 class="h1 hero-title">Freshest Kitchen in Hays!</h2>
+
+      <p class="hero-text">Food is any substance consumed to provide nutritional support for an organism.</p>
+
+      <button class="btn">Book A Table</button>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="section food-menu" id="food-menu">
+  <div class="container">
+
+    <ul class="fiter-list">
+
+      <li>
+        <button class="filter-btn  active" (click)="selCat('All')">All</button>
+      </li>
+
+      <li>
+        <button class="filter-btn" (click)="selCat('Pizza')">Pizza</button>
+      </li>
+
+      <li>
+        <button class="filter-btn" (click)="selCat('Burger')">Burger</button>
+      </li>
+
+      <li>
+        <button class="filter-btn" (click)="selCat('Wrap')">Wraps</button>
+      </li>
+
+
+    </ul>
+
+    <ul class="food-menu-list">
+
+      <ng-container *ngFor="let item of menuItems" >
+      <li *ngIf="selectedCategory === 'All' || item.category === selectedCategory">
+        <div class="food-menu-card">
+
+          <div class="card-banner">
+            <img [src]="item.itemImage" width="300" height="300" loading="lazy"
+              alt="{{ item.itemName }}" class="w-100">
+
+          </div>
+
+          <div class="wrapper">
+            <p class="category">{{ item.category }}</p>
+          </div>
+
+          <h3 class="h3 card-title">{{ item.itemName }}</h3>
+
+          <div class="price-wrapper">
+
+            <p class="price-text">Price:</p>
+
+            <data class="price">${{ item.price }}</data>
+
+          </div>
+
+        </div>
+      </li>
+    </ng-container>
+
+  </ul>
+
+
+  </div>
+</section>
+
+<app-footer></app-footer>
+
+

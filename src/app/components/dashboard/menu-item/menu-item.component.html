@@ -1,0 +1,30 @@
+<div class="container mt-4">
+    <h2>All Menu Items</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Item Image</th>
+                <th>Category</th>
+                <th>Calories</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of menuItems">
+                <td>{{ item._id }}</td>
+                <td>{{ item.itemName }}</td>
+                <td>{{ item.description }}</td>
+                <td>{{ item.price }}</td>
+                <td>{{ item.itemImage }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.calories }}</td>
+                <i class="fa-solid fa-pen-to-square me-4 text-primary"></i>
+            </tr>
+        </tbody>
+    </table>
+</div>

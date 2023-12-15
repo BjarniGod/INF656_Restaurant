@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="d-flex">
+    <div class="b-g-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-flush-group">
+            <a routerLink="/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard Home</a>
+        </div>
+        <div class="list-group list-flush-group">
+            <a routerLink="/dashboard/employees" class="list-group-item list-group-item-action bg-light">Employees</a>
+        </div>
+        <div class="list-group list-flush-group">
+            <a routerLink="/dashboard" class="list-group-item list-group-item-action bg-light">Orders</a>
+        </div>
+        <div class="list-group list-flush-group">
+            <a routerLink="/dashboard/menuItems" class="list-group-item list-group-item-action bg-light">Menu Items</a>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <router-outlet></router-outlet>
+    </div>
+</div>

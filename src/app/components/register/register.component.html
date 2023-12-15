@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<form #regForm="ngForm">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="username" class="form-control" name="username" placeholder="Enter Username" required #username="ngModel" [(ngModel)]="user.username">    
+        <p class="text-danger fw-bold" *ngIf="username.touched && username.invalid">Enter Username</p>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" name="email" placeholder="Enter Email" required #email ="ngModel" [(ngModel)]="user.email">
+        <p class="text-danger fw-bold" *ngIf="email.touched && email.invalid">Enter Email</p>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="Password" required #password="ngModel" [(ngModel)]="user.password">
+        <p class="text-danger fw-bold" *ngIf="password.touched && password.invalid">Enter Password</p>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" class="form-control" name="confirmPassword" placeholder="Password" required #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword">
+        <p class="text-danger fw-bold" *ngIf="confirmPassword.touched && !(confirmPassword.value === password.value)">Password doesn't match</p>
+    </div>
+
+    <button type="submit" class="btn btn-primary" (click)="register()" [disabled]="regForm.invalid || confirmPassword.value !== password.value">Register</button>
+</form>
+
+<app-footer></app-footer>

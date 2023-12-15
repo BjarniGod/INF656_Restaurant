@@ -1,0 +1,23 @@
+<app-header></app-header>
+<form [formGroup]="userLogin" (submit)="login()" #loginForm="ngForm" >
+    <div class="form-outline mb-4">
+      <input type="text" name="adminUsername" class="form-control" placeholder="Enter Username" required formControlName="username" [ngClass]="{'is-invalid': sub && form.email.errors }" />
+      <label class="form-label" for="adminUsername">Username</label>
+      <p class="text-danger fw-bold" *ngIf="sub && form.email.errors">Enter Email</p>
+    </div>
+  
+    <div class="form-outline mb-4">
+      <input type="password" name="adminPassword" class="form-control" placeholder="Enter Password" required formControlName="password" [ngClass]="{'is-invalid': sub && form.password.errors }" />
+      <label class="form-label" for="adminPassword">Password</label>
+      <p class="text-danger fw-bold" *ngIf="sub && form.password.errors">Enter Password</p>
+
+    </div>
+  
+    <!-- <div class="row mb-4">  
+      <div class="col">
+        <a href="#!">Forgot password?</a>
+      </div>
+    </div> -->
+  
+    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="loginForm.invalid">Sign in</button>
+  </form>

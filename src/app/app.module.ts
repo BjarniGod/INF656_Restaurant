@@ -1,18 +1,53 @@
-import { IonicModule } from '@ionic/angular';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { OrderComponent } from './components/order/order.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeLoginComponent } from './components/employee-login/employee-login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardNavComponent } from './components/dashboard/dashboard-nav/dashboard-nav.component';
+import { EmployeeComponent } from './components/dashboard/employee/employee.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { MenuItemComponent } from './components/dashboard/menu-item/menu-item.component';
 
 @NgModule({
-  imports: [
-    IonicModule.forRoot(),
-    HttpClientModule,
-    CommonModule,
+  declarations: [
     AppComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    HeaderComponent,
+    FooterComponent,
+    PagenotfoundComponent,
+    OrderComponent,
+    RegisterComponent,
+    LoginComponent,
+    EmployeeLoginComponent,
+    DashboardComponent,
+    DashboardNavComponent,
+    EmployeeComponent,
+    MenuItemComponent,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { } 
+export class AppModule {}
