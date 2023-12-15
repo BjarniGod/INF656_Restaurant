@@ -64,3 +64,22 @@ By navigating to the order page, in the navigation bar, orders can be placed.
 All orders can be seen in on the homepage of the employee interface.
 
 After placing an order you will be taken to a thank you page.
+
+
+## Future updates
+
+### Customer login
+
+Being able to log in as a customer and placing an order under your account would be the next step.
+
+### Order Status
+
+Implementing a way to change the status of an order in order to track it better, both for staff and customers.
+
+### Deploying the web service
+
+The Web Service is already deployed on [Render](https://render.com/) but I had some errors using it with MongoDB.
+
+## Cleaning up css and design
+
+Making the website look more attractive is always a good thing to do.
