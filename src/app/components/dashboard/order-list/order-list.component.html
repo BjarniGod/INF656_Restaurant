@@ -1,0 +1,10 @@
+<ul>
+    <li class="card text-center" style="width: 18rem;" *ngFor="let order of orders">
+      <div class="card-body">
+        <h5 class="card-title">{{ order.firstName + ' ' + order.lastName }}</h5>
+        <p *ngFor="let item of order.menuItems" class="card-text">{{ getItemTitle(item) }}</p>
+        <a href="#" class="btn btn-primary">Ready Message</a>
+      </div>
+    </li>
+  </ul>
+  

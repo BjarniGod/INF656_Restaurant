@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MenuItem } from '../models/menu-item/menu-item.model';
+import { ApiService } from './api.service';
 
 
 @Injectable({
@@ -9,9 +10,10 @@ import { MenuItem } from '../models/menu-item/menu-item.model';
 })
 export class MenuItemService {
 
-  private BASE_URL = 'http://localhost:3100/menu_items';
+  // private BASE_URL = 'http://localhost:3100/menu_items';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private apiService: ApiService) { }
+  private BASE_URL = `${this.apiService.BASE_URL}/menu_items`
 
   getMenuItems(): Observable<MenuItem[]> {
     return this.http.get<MenuItem[]>(`${this.BASE_URL}`)

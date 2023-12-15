@@ -35,7 +35,7 @@ export class EmployeeLoginComponent {
         );
         if (user) {
           // Redirect to another component
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard/orderList']);
         } 
         // else {
           // Handle invalid credentials

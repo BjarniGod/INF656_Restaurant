@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '../models/employee/employee.model';
 import { Observable } from 'rxjs';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,10 @@ import { Observable } from 'rxjs';
 
 export class EmployeeService {
 
-  private BASE_URL = 'http://localhost:3100/employees';
+  // private BASE_URL = `${}/employees`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private apiService: ApiService) { }
+  private BASE_URL = `${this.apiService.BASE_URL}/employees`;
 
   getEmployees(): Observable<Employee[]> {
     return this.http.get<Employee[]>(`${this.BASE_URL}`)

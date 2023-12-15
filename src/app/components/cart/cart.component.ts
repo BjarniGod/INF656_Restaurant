@@ -41,7 +41,7 @@ export class CartComponent implements OnInit {
       next: (createdOrder) => {
         console.log('Order successfully placed:', createdOrder);
         // Optionally navigate to a thank you or order confirmation page
-        this.router.navigate(['/order-placed']);
+        this.router.navigate(['/order-confirmation']);
       },
       error: (error) => {
         console.error('Error placing order:', error);

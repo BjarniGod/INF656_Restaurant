@@ -12,9 +12,9 @@ import { EmployeeLoginComponent } from './components/employee-login/employee-log
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeeComponent } from './components/dashboard/employee/employee.component';
 import { MenuItemComponent } from './components/dashboard/menu-item/menu-item.component';
-import { OrderListComponent } from './components/dashboard/order-list/order-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
+import { OrderListComponent } from './components/dashboard/order-list/order-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +28,7 @@ const routes: Routes = [
   children: [
     { path: 'employees', component: EmployeeComponent},
     { path: 'menuItems', component: MenuItemComponent},
-    { path: 'orderList', component: OrderListComponent}
+    { path: 'orderList', component: OrderListComponent},
   ] },
   { path: 'cart', component: CartComponent},
   { path: 'order-confirmation', component: OrderConfirmationComponent},
