@@ -78,7 +78,7 @@
 
                 <div class="mb-3">
                     <label for="calories" class="form-label">Calories</label>
-                    <input type="text" name="calories" class="form-control" placeholder="Enter Calories" [(ngModel)]="menuItem.calories" #menuItemCalories="ngModel">
+                    <input type="number" name="calories" class="form-control" placeholder="Enter Calories" [(ngModel)]="menuItem.calories" #menuItemCalories="ngModel">
                     <p class="text-danger fw-bold" *ngIf="menuItemCalories.touched && menuItemCalories.invalid">Enter Calories</p>
                 </div>
 
