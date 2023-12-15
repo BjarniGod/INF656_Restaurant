@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MenuItem } from 'src/app/models/menu-item/menu-item.model';
+import { MenuItemService } from 'src/app/services/menu-item.service';
 
 @Component({
   selector: 'app-home',
@@ -8,38 +10,14 @@ import { Component } from '@angular/core';
 export class HomeComponent {
 
   selectedCategory = 'All';
+  menuItems: MenuItem[] = [];
 
-  pizza = {
-    id: 1,
-    itemName: 'Pizza',
-    description: 'Huge pizza',
-    price: 10.99,
-    category: 'Pizza',
-    itemImage: 'https://i.ibb.co/DLj80hM/grilled-Salmon.webp',
-    calories: 34
-  }
-  burger = {
-    id: 2,
-    itemName: 'Burger',
-    description: 'Awesome Burger',
-    price: 9.99,
-    category: 'Burger',
-    itemImage: 'https://i.ibb.co/DLj80hM/grilled-Salmon.webp',
-    calories: 34
-  }
-  wrap = {
-    id: 3,
-    itemName: 'Wrap',
-    description: 'Great Wrap',
-    price: 8.99,
-    category: 'Wrap',
-    itemImage: 'https://i.ibb.co/DLj80hM/grilled-Salmon.webp',
-    calories: 34
-  }
-  menuItems = [this.pizza, this.burger, this.wrap];
+  constructor(private menuItemService: MenuItemService) {}
 
-  constructor() {
-    console.log(this.menuItems);
+  ngOnInit(): void {
+    this.menuItemService.getMenuItems().subscribe((data: any) => {
+      this.menuItems = data as MenuItem[];
+    });
   }
 
   selCat(category: string) {

@@ -22,20 +22,37 @@
     <ul class="fiter-list">
 
       <li>
-        <button class="filter-btn  active" (click)="selCat('All')">All</button>
+        <button class="filter-btn" [class.active]="selectedCategory === 'All'" (click)="selCat('All')">All</button>
       </li>
-
+      
       <li>
-        <button class="filter-btn" (click)="selCat('Pizza')">Pizza</button>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Entree'" (click)="selCat('Entree')">Entree</button>
       </li>
-
+      
       <li>
-        <button class="filter-btn" (click)="selCat('Burger')">Burger</button>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Burger'" (click)="selCat('Burger')">Burger</button>
       </li>
-
+      
       <li>
-        <button class="filter-btn" (click)="selCat('Wrap')">Wraps</button>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Salad'" (click)="selCat('Salad')">Salad</button>
       </li>
+      
+      <li>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Appetizer'" (click)="selCat('Appetizer')">Appetizer</button>
+      </li>
+      
+      <li>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Kids'" (click)="selCat('Kids')">Kids</button>
+      </li>
+      
+      <li>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Breakfast'" (click)="selCat('Breakfast')">Breakfast</button>
+      </li>
+      
+      <li>
+        <button class="filter-btn" [class.active]="selectedCategory === 'Beverage'" (click)="selCat('Beverage')">Beverage</button>
+      </li>
+      
 
 
     </ul>
