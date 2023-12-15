@@ -14,6 +14,12 @@ export class EmployeeComponent {
     firstName: '',
     lastName: '',
   };
+  newEmployee: any = {
+    _id: '',
+    firstName: '',
+    lastName: '',
+  };
+
 
   constructor(private employeeService: EmployeeService) {}
 
@@ -26,6 +32,27 @@ export class EmployeeComponent {
   loadEmployees() {
     this.employeeService.getEmployees().subscribe((data: any) => {
       this.employees = data;
+    });
+  }
+
+  clearData() {
+    this.employee = {
+      _id: '',
+      firstName: '',
+      lastName: '',
+    };
+  }
+  
+
+  createEmployee() {
+      this.employeeService.createEmployee(this.newEmployee).subscribe({
+        next: (newEmployee) => {
+          console.log('Employee successfully created: ', newEmployee);
+          this.loadEmployees()
+        },
+        error: (error) => {
+          console.error('Error creating employee: ', error)
+        }
     });
   }
 

@@ -21,6 +21,16 @@ export class MenuItemComponent {
     calories: ''
   }
 
+  newMenuItem: any = {
+    _id: '',
+    itemName: '',
+    description: '',
+    price: '',
+    itemImage: '',
+    category: '',
+    calories: ''
+  }
+
 
   constructor(private menuItemService: MenuItemService) {}
 
@@ -45,6 +55,18 @@ export class MenuItemComponent {
       console.log('Menu Item Id is undefined');
     }
   }
+
+  createMenuItem() {
+    this.menuItemService.createMenuItem(this.newMenuItem).subscribe({
+      next: (newMenuItem) => {
+        console.log('Menu Item successfully created: ', newMenuItem);
+        this.loadMenuItems()
+      },
+      error: (error) => {
+        console.error('Error creating menu item: ', error)
+      }
+  });
+}
 
   updatedMenuItem() {
     if(this.menuItem._id && this.menuItem) {

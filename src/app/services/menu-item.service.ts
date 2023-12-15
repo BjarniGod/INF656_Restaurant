@@ -21,6 +21,19 @@ export class MenuItemService {
     return this.http.get<MenuItem>(`${this.BASE_URL}/${id}`)
   }
 
+  createMenuItem(menuItem: MenuItem): Observable<MenuItem> {
+    const body = {
+      id: menuItem._id,
+      itemName: menuItem.itemName,
+      description: menuItem.description,
+      price: menuItem.price,
+      itemImage: menuItem.itemImage,
+      category: menuItem.category,
+      calories: menuItem.calories
+    }
+    return this.http.post<MenuItem>(`${this.BASE_URL}`, body);
+  }
+
   updateMenuItem(menuItem: MenuItem): Observable<MenuItem> {
     console.log('Sending update request for menu item: ', menuItem);
     const body = {

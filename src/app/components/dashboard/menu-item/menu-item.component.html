@@ -4,7 +4,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Item Name</th>
                 <th>Description</th>
                 <th>Price</th>
@@ -16,7 +16,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of menuItems">
-                <td>{{ item._id }}</td>
+                <!-- <td>{{ item._id }}</td> -->
                 <td>{{ item.itemName }}</td>
                 <td>{{ item.description }}</td>
                 <td>{{ item.price }}</td>
@@ -29,12 +29,6 @@
         </tbody>
     </table>
 </div>
-
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Create New Item
-  </button>
   
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -53,13 +47,19 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input type="text" name="itemName" class="form-control" placeholder="Enter Name" required [(ngModel)]="menuItem.itemName" #menuItemName="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemName.touched && menuItemName.invalid">Enter Name</p>
+                </div>
+
+                <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" name="description" class="form-control" placeholder="Enter First Name" required [(ngModel)]="menuItem.description" #menuItemDescription="ngModel">
+                    <input type="text" name="description" class="form-control" placeholder="Enter Description" [(ngModel)]="menuItem.description" #menuItemDescription="ngModel">
                     <p class="text-danger fw-bold" *ngIf="menuItemDescription.touched && menuItemDescription.invalid">Enter Description</p>
                 </div>
 
                 <div class="mb-3">
-                    <label for="price" class="form-label">Last Name</label>
+                    <label for="price" class="form-label">Price</label>
                     <input type="number" name="price" class="form-control" placeholder="Enter Price" required [(ngModel)]="menuItem.price" #menuItemPrice="ngModel">
                     <p class="text-danger fw-bold" *ngIf="menuItemPrice.touched && menuItemPrice.invalid">Enter Price</p>
                 </div>
@@ -83,11 +83,77 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" (click)="updatedMenuItem()" class="btn btn-primary" [disabled]="regForm.invalid">Save changes</button>
+                    <button type="button" (click)="updatedMenuItem()" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="regForm.invalid">Save changes</button>
                   </div>
               </form>
         </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">
+    Create Menu Item
+  </button>
+  
+  
+  <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Menu Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #newForm="ngForm">
+                <!-- <div class="mb-3">
+                    <label class="form-label">UID</label>
+                    <input type="text" class="form-control" [(ngModel)]="menuItem._id" name="u_id" disabled>
+                </div> -->
+
+                <div class="mb-3">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input type="text" name="itemName" class="form-control" placeholder="Enter Name" required [(ngModel)]="newMenuItem.itemName" #menuItemName="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemName.touched && menuItemName.invalid">Enter Name</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control" placeholder="Enter Description" [(ngModel)]="newMenuItem.description" #menuItemDescription="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemDescription.touched && menuItemDescription.invalid">Enter Description</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" name="price" class="form-control" placeholder="Enter Price" required [(ngModel)]="newMenuItem.price" #menuItemPrice="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemPrice.touched && menuItemPrice.invalid">Enter Price</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="itemImage" class="form-label">Item Image</label>
+                    <input type="text" name="itemImage" class="form-control" placeholder="Enter Image Url" [(ngModel)]="newMenuItem.itemImage" #menuItemImage="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemImage.touched && menuItemImage.invalid">Enter Image Url</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" name="category" class="form-control" placeholder="Enter Category" [(ngModel)]="newMenuItem.category" #menuItemCategory="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemCategory.touched && menuItemCategory.invalid">Enter Category</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="calories" class="form-label">Calories</label>
+                    <input type="number" name="calories" class="form-control" placeholder="Enter Calories" [(ngModel)]="newMenuItem.calories" #menuItemCalories="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemCalories.touched && menuItemCalories.invalid">Enter Calories</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" (click)="createMenuItem()" class="btn btn-primary" data-bs-dismiss="modal" [disabled]="newForm.invalid">Save changes</button>
+                  </div>
+              </form>
+        </div>
+  
       </div>
     </div>
   </div>

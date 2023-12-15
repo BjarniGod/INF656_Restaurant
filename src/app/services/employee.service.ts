@@ -21,6 +21,15 @@ export class EmployeeService {
     return this.http.get<Employee>(`${this.BASE_URL}/${id}`)
   }
 
+  createEmployee(employee: Employee): Observable<Employee> {
+    const body = {
+      id: employee._id,
+      firstName: employee.firstName,
+      lastName: employee.lastName
+    }
+    return this.http.post<Employee>(`${this.BASE_URL}`, body);
+  }
+
   updateEmployee(employee: Employee): Observable<Employee> {
     console.log('Sending update request for employee: ', employee);
     const body = {
