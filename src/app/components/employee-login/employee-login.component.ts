@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmployeeService } from 'src/app/services/employee.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,11 +11,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class EmployeeLoginComponent {
   sub = false;
+  loginError = false;
 
   userLogin: any = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
+
+  constructor(private employeeService: EmployeeService, private router: Router) {}
+
 
   get form() {
     return this.userLogin.controls;
@@ -21,6 +27,23 @@ export class EmployeeLoginComponent {
 
   login() {
     this.sub = true;
-    console.log(this.userLogin.value);
+    if (this.userLogin.valid) {
+      this.employeeService.getEmployees().subscribe(employees => {
+        const user = employees.find(emp => 
+          emp.username === this.userLogin.value.username && 
+          emp.password === this.userLogin.value.password
+        );
+        if (user) {
+          // Redirect to another component
+          this.router.navigate(['/dashboard']);
+        } 
+        // else {
+          // Handle invalid credentials
+          this.loginError = true;
+        // }
+      });
+    }
   }
+
+
 }
