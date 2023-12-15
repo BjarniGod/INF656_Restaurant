@@ -21,34 +21,6 @@ export class MenuItemComponent {
     calories: ''
   }
 
-  pizza = {
-    id: 1,
-    itemName: 'Pizza',
-    description: 'Huge pizza',
-    price: 10.99,
-    category: 'Pizza',
-    itemImage: 'https://i.ibb.co/DLj80hM/grilled-Salmon.webp',
-    calories: 34
-  }
-  burger = {
-    id: 2,
-    itemName: 'Burger',
-    description: 'Awesome Burger',
-    price: 9.99,
-    category: 'Burger',
-    itemImage: 'https://i.ibb.co/DLj80hM/grilled-Salmon.webp',
-    calories: 34
-  }
-  wrap = {
-    id: 3,
-    itemName: 'Wrap',
-    description: 'Great Wrap',
-    price: 8.99,
-    category: 'Wrap',
-    itemImage: 'https://i.ibb.co/DLj80hM/grilled-Salmon.webp',
-    calories: 34
-  }
-  // menuItems = [this.pizza, this.burger, this.wrap];
 
   constructor(private menuItemService: MenuItemService) {}
 
@@ -64,7 +36,7 @@ export class MenuItemComponent {
     });
   }
 
-  getEmployee(id: string) {
+  getMenuItem(id: string) {
     if(id) {
       this.menuItemService.getMenuItem(id).subscribe((menuItemData) => {
         this.menuItem = menuItemData;
@@ -78,7 +50,7 @@ export class MenuItemComponent {
     if(this.menuItem._id && this.menuItem) {
       this.menuItemService.updateMenuItem(this.menuItem).subscribe({
         next: (updateMenuItem) => {
-          console.log('Menu Item successfully updated: ', this.updatedMenuItem);
+          console.log('Menu Item successfully updated: ', updateMenuItem);
           this.loadMenuItems()
         },
         error: (error) => {

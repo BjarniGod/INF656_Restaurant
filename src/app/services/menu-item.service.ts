@@ -23,17 +23,16 @@ export class MenuItemService {
 
   updateMenuItem(menuItem: MenuItem): Observable<MenuItem> {
     console.log('Sending update request for menu item: ', menuItem);
-    return this.http.put<MenuItem>(`${this.BASE_URL}`, {
-      body: {
-        _id: menuItem._id,
+    const body = {
+        id: menuItem._id,
         itemName: menuItem.itemName,
         description: menuItem.description,
         price: menuItem.price,
         itemImage: menuItem.itemImage,
         category: menuItem.category,
         calories: menuItem.calories
-      }
-    })
+    }
+    return this.http.put<MenuItem>(`${this.BASE_URL}`, body)
   }
 
   deleteMenuItem(id: string): Observable<any> {

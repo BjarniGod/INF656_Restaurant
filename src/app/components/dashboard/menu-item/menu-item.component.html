@@ -23,8 +23,71 @@
                 <td>{{ item.itemImage }}</td>
                 <td>{{ item.category }}</td>
                 <td>{{ item.calories }}</td>
-                <i class="fa-solid fa-pen-to-square me-4 text-primary"></i>
+                <i class="fa-solid fa-pen-to-square me-4 text-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="getMenuItem(item._id)" ></i>
+                <i class="fa-solid fa-trash icon text-danger" (click)="deleteMenuItem(item._id)"></i>
             </tr>
         </tbody>
     </table>
 </div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Create New Item
+  </button>
+  
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Menu Item</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #regForm="ngForm">
+
+                <div class="mb-3">
+                    <label class="form-label">UID</label>
+                    <input type="text" class="form-control" [(ngModel)]="menuItem._id" name="u_id" disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <input type="text" name="description" class="form-control" placeholder="Enter First Name" required [(ngModel)]="menuItem.description" #menuItemDescription="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemDescription.touched && menuItemDescription.invalid">Enter Description</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Last Name</label>
+                    <input type="number" name="price" class="form-control" placeholder="Enter Price" required [(ngModel)]="menuItem.price" #menuItemPrice="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemPrice.touched && menuItemPrice.invalid">Enter Price</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="itemImage" class="form-label">Item Image</label>
+                    <input type="text" name="itemImage" class="form-control" placeholder="Enter Image Url" [(ngModel)]="menuItem.itemImage" #menuItemImage="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemImage.touched && menuItemImage.invalid">Enter Image Url</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <input type="text" name="category" class="form-control" placeholder="Enter Category" [(ngModel)]="menuItem.category" #menuItemCategory="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemCategory.touched && menuItemCategory.invalid">Enter Category</p>
+                </div>
+
+                <div class="mb-3">
+                    <label for="calories" class="form-label">Calories</label>
+                    <input type="text" name="calories" class="form-control" placeholder="Enter Calories" [(ngModel)]="menuItem.calories" #menuItemCalories="ngModel">
+                    <p class="text-danger fw-bold" *ngIf="menuItemCalories.touched && menuItemCalories.invalid">Enter Calories</p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" (click)="updatedMenuItem()" class="btn btn-primary" [disabled]="regForm.invalid">Save changes</button>
+                  </div>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
