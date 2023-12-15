@@ -1,27 +1,66 @@
-# Codeflix
+# Hays Kitchen
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
-## Development server
+## Start node.js Web Service
+
+### Step 1: Clone the following github repository into Visual Studio Code
+
+```
+    git clone https://github.com/ivanvelocastaneda/Team-B-Project-Server
+```
+
+### Step 2: Change directory
+
+```
+    cd Team-B-Project-Server
+```
+
+### Step 3: Install required packages
+
+```
+    npm install
+```
+
+### Step 4: Start development server:
+
+```
+    node server.js
+```
+
+## Project Setup - Restaurant Website
+
+### Step 1: Clone the following github repository into Visual Studio Code
+
+```
+    git clone https://github.com/ivanvelocastaneda/CSCI441_A-Team-B-Project
+```
+
+### Step 2: Change directory
+
+```
+    cd Team-B-Project-Server
+```
+
+### Step 3: Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Using the Application
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Employee  LogIn
 
-## Build
+You can access the employee interface at the bottom of the website, you will be prompted with a log-in screen.
+Already available test employee credentials
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Username: BjarniGod
+* Password: 12345678
 
-## Running unit tests
+In the employee interface you can add and edit both menu items and employees.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Placing an Order
 
-## Running end-to-end tests
+By navigating to the order page, in the navigation bar, orders can be placed.
+All orders can be seen in on the homepage of the employee interface.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+After placing an order you will be taken to a thank you page.
